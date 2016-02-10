@@ -6,7 +6,7 @@ install:
 script:
     - mkdir -p build/logs
     - chmod 777 build/logs
-    - cp app/phpunit.xml.dist app/phpunit.xml
-    - php bin/phpunit --bootstrap app/bootstrap.php.cache --coverage-clover build/logs/clover.xml -c app/phpunit.xml src/
+    - cp phpunit.xml.dist phpunit.xml
+    - php vendor/bin/phpunit --bootstrap app/bootstrap.php.cache --coverage-clover build/logs/clover.xml -c app/phpunit.xml src/
 after_script:
-    - php bin/coveralls -v
+    - php vendor/bin/coveralls -v
