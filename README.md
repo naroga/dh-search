@@ -25,4 +25,5 @@ To use this package, retrieve the service from the DIC:
 License
 -------
 
-This project is proprietary and thus cannot be used without explicit written consent from the owner (DistantHireJob).
+This project is proprietary and thus cannot be used, copied, modified or distributed without explicit written 
+consent from the owner (DistantJobHire).
