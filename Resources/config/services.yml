@@ -1,1 +1,12 @@
 services:
+
+    naroga.search.filter.remove_prepositions:
+        class: Naroga\SearchBundle\Filter\RemovePrepositionsFilter
+
+    naroga.search.engine.pdo:
+        class: Naroga\SearchBundle\Engine\PDOSearch
+        arguments: [@doctrine.orm.default_entity_manager, [@naroga.search.filter.remove_prepositions]]
+
+    naroga.search:
+        class: Naroga\SearchBundle\Search\Search
+        arguments: [@naroga.search.engine.pdo]

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * File
  *
  * @ORM\Table(name="file")
- * @ORM\Entity(repositoryClass="Naroga\SearchBundle\Repository\FileRepository")
+ * @ORM\Entity()
  */
 class File
 {
@@ -35,6 +35,16 @@ class File
      */
     private $content;
 
+    /**
+     * File constructor.
+     * @param $name
+     * @param $content
+     */
+    public function __construct($name, $content)
+    {
+        $this->setName($name);
+        $this->setContent($content);
+    }
 
     /**
      * Get id
@@ -44,20 +54,6 @@ class File
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return File
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -71,20 +67,6 @@ class File
     }
 
     /**
-     * Set content
-     *
-     * @param string $content
-     *
-     * @return File
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
      * Get content
      *
      * @return string
@@ -94,4 +76,3 @@ class File
         return $this->content;
     }
 }
-

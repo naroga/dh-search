@@ -1,6 +1,6 @@
 <?php
 
-namespace Naroga\SearchBundle\Search;
+namespace Naroga\SearchBundle\Engine;
 
 use Naroga\SearchBundle\Entity\File;
 
@@ -8,7 +8,7 @@ use Naroga\SearchBundle\Entity\File;
  * Interface SearchInterface
  * @package Naroga\SearchBundle\Search
  */
-interface SearchInterface
+interface EngineInterface
 {
     /**
      * Indexes a new entry on the search engine database.
