@@ -30,7 +30,7 @@ class PDOEngine implements EngineInterface
     /**
      * @inheritDoc
      */
-    public function add(\string $name, \string $content)
+    public function add(string $name, string $content)
     {
         $file = new File($name, $content);
         $this->entityManager->persist($file);
@@ -41,7 +41,7 @@ class PDOEngine implements EngineInterface
     /**
      * @inheritDoc
      */
-    public function search(\string $expression) : array
+    public function search(string $expression) : array
     {
         $keywords = array_filter(preg_split("/[\s*|\.*|,*]/", $expression));
         //TODO: make a way to allow for composite expressions (like "OR", "-", quote aggregation and others, like google).
