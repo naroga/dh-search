@@ -5,7 +5,9 @@ services:
 
     naroga.search.engine.pdo:
         class: Naroga\SearchBundle\Engine\PDOSearch
-        arguments: [@doctrine.orm.default_entity_manager, [@naroga.search.filter.remove_prepositions]]
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - [ @naroga.search.filter.remove_prepositions ]
 
     naroga.search:
         class: Naroga\SearchBundle\Search\Search
