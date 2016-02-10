@@ -24,7 +24,7 @@ class Search
      * @param string $name
      * @param string $content
      */
-    public function add(\string $name, \string $content)
+    public function add(string $name, string $content)
     {
         $this->engine->add($name, $content);
     }
@@ -35,7 +35,7 @@ class Search
      * @param string $expression
      * @return array
      */
-    public function search(\string $expression) : array
+    public function search(string $expression) : array
     {
         return $this->engine->search($expression);
     }

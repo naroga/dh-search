@@ -42,8 +42,8 @@ class File
      */
     public function __construct($name, $content)
     {
-        $this->setName($name);
-        $this->setContent($content);
+        $this->name = $name;
+        $this->content = $content;
     }
 
     /**
