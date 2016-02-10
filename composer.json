@@ -1,0 +1,13 @@
+{
+    "name": "naroga/search-bundle",
+    "description": "An agnostic search bundle.",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Pedro Cordeiro",
+            "email": "pedro@naroga.com.br"
+        }
+    ],
+    "require": {}
+}
