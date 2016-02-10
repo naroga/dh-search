@@ -69,6 +69,7 @@ class PDOEngine implements EngineInterface
                     ->setParameter('keyword' . $i, $keyword)
                 ;
             }
+            $i++;
         }
 
         //TODO: post-process the result to sort by relevance (IE: the results that have the

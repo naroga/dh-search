@@ -3,10 +3,10 @@
 namespace Naroga\SearchBundle\Engine;
 
 /**
- * Class ElasticSearch
+ * Class Solr
  * @package Naroga\SearchBundle\Engine
  */
-class ElasticSearch implements EngineInterface
+class Solr implements EngineInterface
 {
     public function add(string $name, string $content)
     {
