@@ -13,7 +13,7 @@ class InMemory implements EngineInterface
     /**
      * @inheritDoc
      */
-    public function add(\string $name, \string $content)
+    public function add(string $name, string $content)
     {
         $this->memory[] = ['name' => $name, 'content' => $content];
     }
@@ -21,7 +21,7 @@ class InMemory implements EngineInterface
     /**
      * @inheritDoc
      */
-    public function search(\string $expression) : array
+    public function search(string $expression) : array
     {
         $keywords = array_filter(preg_split("/[\s*|\.*|,*]/", $expression));
         //TODO: make a way to allow for composite expressions (like "OR", "-", quote aggregation and others, like google).
