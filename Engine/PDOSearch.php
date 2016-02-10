@@ -72,10 +72,25 @@ class PDOEngine implements EngineInterface
             $i++;
         }
 
-        //TODO: post-process the result to sort by relevance (IE: the results that have the
-        //most keywords appear first)
-        return $qBuilder
+        $result = $qBuilder
             ->getQuery()
             ->getResult();
+
+        $sortedResult = [];
+        foreach ($result as $file) {
+            $hits = ['file' => $file, 'hits' = 0];
+            foreach ($keywords as $keyword) {
+                if (strpos($file->getContent(), $keyword) !== false) {
+                    $hits['hits']++;
+                }
+            }
+            $sortedResult[] = $hits;
+        }
+
+        usort($sortedResult, function ($a, $b) {
+            return $b['hits'] <=> $a['hits'];
+        });
+
+        return $sortedResult;
     }
 }
