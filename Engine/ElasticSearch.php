@@ -15,6 +15,6 @@ class ElasticEngine implements EngineInterface
 
     public function search(\string $expression) : array
     {
-        return [];
+
     }
 }
