@@ -25,4 +25,11 @@ interface EngineInterface
      * @return array The search result.
      */
     public function search(string $expression) : array;
+
+    /**
+     * Deletes an entry from the search engine database.
+     *
+     * @param string $id
+     */
+    public function delete(string $id);
 }

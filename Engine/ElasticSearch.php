@@ -3,6 +3,7 @@
 namespace Naroga\SearchBundle\Engine;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use Naroga\SearchBundle\Entity\File;
 
 /**
@@ -31,7 +32,7 @@ class ElasticSearch implements EngineInterface
         ]);
 
         $deserializedResult = $this->serializer->deserialize($result->getBody()->getContents(), 'array', 'json');
-        return $deserializedResult["created"];
+        return $deserializedResult["created"] ? $deserializedResult['_id'] : false;
     }
 
     public function search(string $expression) : array
@@ -56,4 +57,19 @@ class ElasticSearch implements EngineInterface
 
         return $result;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function delete(string $id)
+    {
+        try {
+            $response = $this->client->delete('/' . $this->indexName . '/external/' . $id . '?pretty');
+        } catch (ClientException $e) {
+            return false;
+        }
+        $deserializedResponse = $this->serializer->deserialize($response->getBody()->getContents(), 'array', 'json');
+        return $deserializedResponse['found'] ? $deserializedResponse['_shards']['successful'] : false;
+    }
+
 }

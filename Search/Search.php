@@ -45,4 +45,14 @@ class Search
     {
         return $this->engine->search($expression);
     }
+
+    /**
+     * Removes an entry by its ID.
+     *
+     * @param string $id
+     */
+    public function delete(string $id)
+    {
+        return $this->engine->delete($id);
+    }
 }

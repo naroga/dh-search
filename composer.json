@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "jms/serializer-bundle": "~1.0"
     },
     "require-dev": {
         "satooshi/php-coveralls": "dev-master",
