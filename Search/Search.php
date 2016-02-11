@@ -22,17 +22,16 @@ class Search
     /**
      * Adds a new file.
      *
-     * @param string $name
      * @param string $path
      * @throws FileNotFoundException
      */
-    public function add(string $name, string $path)
+    public function add(string $path)
     {
         if (!file_exists($path)) {
             throw new FileNotFoundException("File '$path' not found'");
         }
 
-        return $this->engine->add($name, file_get_contents($path));
+        return $this->engine->add($path, file_get_contents($path));
     }
 
     /**

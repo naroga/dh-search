@@ -51,7 +51,7 @@ class ElasticSearch implements EngineInterface
 
         $deserializedResponse = $this->serializer->deserialize($response->getBody()->getContents(), 'array', 'json');
         foreach ($deserializedResponse['hits']['hits'] as $hit) {
-            $file = $this->serializer->deserialize(json_encode($hit['_source']), File::class, 'json');
+            $file = new File($hit['_source']['name'], $hit['_source']['content']);
             $result[] = ['score' => $hit['_score'], 'file' => $file];
         }
 

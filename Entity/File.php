@@ -2,8 +2,6 @@
 
 namespace Naroga\SearchBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * File
  */

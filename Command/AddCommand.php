@@ -19,9 +19,8 @@ class AddCommand extends ContainerAwareCommand
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $filename = $input->getArgument('path');
-        $content = $filename;
 
-        if ($id = $this->getContainer()->get('naroga.search')->add($filename, $content)) {
+        if ($id = $this->getContainer()->get('naroga.search')->add($filename)) {
             $output->writeln("<info>File written successfully with ID '" . $id . "'!</info>");
         } else {
             $output->writeln("<error>An error ocurred.</error>");
