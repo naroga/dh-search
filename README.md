@@ -7,8 +7,8 @@ Requirements
 ------------
 
 This project makes use of some cool PHP 7.0 features (such as the Null Coalesce operator, Spaceship operator, scalar
- typehints, function return typehints and others). It also uses Symfony3, which means it requires everything Symfony3
- also requiers. Additionally, you'll need the `php-curl` extension.
+ typehints, function return typehints and others). It also uses Symfony3, which means it shares its requirements.
+ Additionally, you'll need the `php-curl` extension.
 
 Installation
 ------------
