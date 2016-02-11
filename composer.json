@@ -14,8 +14,6 @@
         "jms/serializer-bundle": "~1.0"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "dev-master",
-        "phpunit/php-code-coverage": "^3",
         "phpunit/phpunit": "5.0.*"
     },
     "autoload": {
