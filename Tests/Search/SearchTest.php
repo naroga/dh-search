@@ -37,4 +37,27 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $search = new Search($esMock);
         $this->assertEquals($search->add(__DIR__ . '/fileDoesntExist.txt'), '123');
     }
+
+    public function testSearch() {
+        $esMock = $this->getMockBuilder(ElasticSearch::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $esMock->expects($this->any())->method('search')->will($this->returnValue(
+            [['score' => 1, 'file' => new File('test.txt', 'this is a test file')]]
+        ));
+        $search = new Search($esMock);
+        $this->assertEquals($search->search('test')[0]['score'], 1);
+        $this->assertInstanceOf(File::class, $search->search('test')[0]['file']);
+    }
+
+    public function testDelete() {
+        $esMock = $this->getMockBuilder(ElasticSearch::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $esMock->expects($this->any())->method('delete')->will($this->returnValue(
+            1
+        ));
+        $search = new Search($esMock);
+        $this->assertEquals($search->delete('123'), 1);
+    }
 }
