@@ -92,7 +92,7 @@ In your services.yml file, define your search engine as a service:
             class: My\Class\Path
             arguments: [ "here_come_your_dependencies" ]
             
-Still in t he `services` section, override the `naroga.search` service:
+Still in the `services` section, override the `naroga.search` service:
 
         naroga.search:
             class: Naroga\SearchBundle\Search\Search
