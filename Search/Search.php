@@ -3,6 +3,7 @@
 namespace Naroga\SearchBundle\Search;
 
 use Naroga\SearchBundle\Engine\EngineInterface;
+use Naroga\SearchBundle\Exception\FileNotFoundException;
 
 /**
  * Class Search
@@ -22,11 +23,16 @@ class Search
      * Adds a new file.
      *
      * @param string $name
-     * @param string $content
+     * @param string $path
+     * @throws FileNotFoundException
      */
-    public function add(string $name, string $content)
+    public function add(string $name, string $path)
     {
-        $this->engine->add($name, $content);
+        if (!file_exists($path)) {
+            throw new FileNotFoundException("File '$path' not found'");
+        }
+
+        return $this->engine->add($name, file_get_contents($path));
     }
 
     /**

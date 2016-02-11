@@ -2,8 +2,7 @@
 
 namespace Naroga\SearchBundle\Command;
 
-
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -14,13 +13,18 @@ class AddCommand extends ContainerAwareCommand
         $this
             ->setName('search:add')
             ->setDescription('Adds a new entry to the search engine.')
-            ->addArgument('filename')
-            ->addArgument('content');
+            ->addArgument('path');
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $filename = $input->getArgument('filename');
-        $content = $input->getArgument('content');
+        $filename = $input->getArgument('path');
+        $content = $filename;
+
+        if ($this->getContainer()->get('naroga.search')->add($filename, $content)) {
+            $output->writeln("<info>File written successfully!</info>");
+        } else {
+            $output->writeln("<error>An error ocurred.</error>");
+        }
     }
 }

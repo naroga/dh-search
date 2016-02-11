@@ -9,6 +9,9 @@
             "email": "pedro@naroga.com.br"
         }
     ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
     "require-dev": {
         "satooshi/php-coveralls": "dev-master",
         "phpunit/php-code-coverage": "^3",

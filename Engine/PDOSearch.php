@@ -21,7 +21,7 @@ class PDOEngine implements EngineInterface
      * @param EntityManager $entityManager Doctrine's entity manager.
      * @param array $filters Proprocessing filters, as callbacks.
      */
-    public function __construct(EntityManager $entityManager, array $filters = [])
+    public function __construct(EntityManager $entityManager, ...$filters)
     {
         $this->entityManager = $entityManager;
         $this->filters = $filters;
