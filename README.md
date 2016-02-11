@@ -20,21 +20,21 @@ To install this package, require it using composer:
 Usage
 -----
 
-1. Indexing a document:
+Indexing a document:
 
     $ php bin/console search:add <filename>
     File written successfully with ID <ID>
     
 This indexes the file content.
 
-2. Deleting a document:
+Deleting a document:
 
     $ php bin/console search:delete <id>
     <#> entries deleted successfully.
     
 This deletes an indexed document.
 
-3. Searching for a document:
+Searching for a document:
     
     $php bin/console search:search <expression>
     Found <#> results:
